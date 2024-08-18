@@ -1,7 +1,7 @@
 import numpy as np
 
 # GENAUERE BERECHNUNG
-def SDA_LMDI(Cct1, Cct2, Cet1, Cet2, CLt1, CLt2, Cyt1, Cyt2, m_results_x):
+def SDA_LMDI_dt(Cct1, Cct2, Cet1, Cet2, CLt1, CLt2, Cyt1, Cyt2, m_results_x):
     tag = "DLlong"
 
     L0 = CLt1

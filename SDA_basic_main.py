@@ -12,11 +12,11 @@ from SDA_trade_approach import m_trade
 from ghg_sector_diagramm_iot_sorted import iot_sector_plt
 from SDA_import_pop import import_excel
 
-def basic_SDA(sda_type, input0, inputend, order, category, selected_sector, order2, callback=None):
+def basic_SDA(sda_type, input0, inputend, order, category, selected_sector, order2, dl, callback=None):
 
     print('__-_________')
     print('sector bums')
-    print(selected_sector)
+    print(dl)
 
     start = 0
     k = 0
@@ -98,7 +98,7 @@ def basic_SDA(sda_type, input0, inputend, order, category, selected_sector, orde
 
             m_results_11, m_results_12, m_results_21, m_results_22, num_factors, list_factors_0, names_factors, m_Y_t_12, tag, total = SDA_calc_new3(
                 m_c_0, m_e_0, m_L_0, m_Y_0, m_c_t, m_e_t, m_L_t, m_Y_t, num_regions_0, num_sectors_0, reg_to_reg_type,
-                pop_0, pop_t)
+                pop_0, pop_t, dl)
 
         if dekomp_type == 'sum':
 
@@ -126,7 +126,7 @@ def basic_SDA(sda_type, input0, inputend, order, category, selected_sector, orde
 
             m_results_11, m_results_12, m_results_21, m_results_22, num_factors, list_factors_0, names_factors, m_Y_t_12, tag, total = SDA_calc_new3(
                 m_c_0, m_e_0, m_L_0, m_Y_0, m_c_t, m_e_t, m_L_t, m_Y_t, num_regions_0, num_sectors_0, reg_to_reg_type,
-                pop_0, pop_t)
+                pop_0, pop_t, dl)
 
         if start == 0:
             m_results, m_c_sum0, m_c_sum = m_trade(reg_to_reg_type, m_results_11, m_results_12, m_results_21,

@@ -14,6 +14,7 @@ class RefApproachSDA(QWidget):
         self.selected_demand = selected_demand
         self.selected_region = selected_region
         self.selected_sector = selected_sector
+        self.dl = 'polar'
         self.initUI()
 
     def initUI(self):
@@ -85,6 +86,10 @@ class RefApproachSDA(QWidget):
         radio_layout.addWidget(self.dl_polar_radio)
         radio_layout.addWidget(self.dl_detailed_radio)
 
+        # Verbinde Radio Buttons mit Slot
+        self.dl_polar_radio.toggled.connect(self.update_dl)
+        self.dl_detailed_radio.toggled.connect(self.update_dl)
+
         center_layout.addLayout(radio_layout)
 
         # Spacer Item zwischen den Zonen
@@ -127,9 +132,21 @@ class RefApproachSDA(QWidget):
         print(f"Selected Region: {', '.join(self.selected_sector)}")
 
 
+
     #def on_continue(self, refapp):
      #   FinalMainSDA(self.sda_type, self.start_year, self.end_year, self.selected_demand, self.selected_region, refapp)
 
+
     def on_continue(self, refapp):
         self.app.show_sda_process_load_page(self.sda_type, self.start_year, self.end_year, self.selected_demand,
-                                            self.selected_region, self.selected_sector, refapp)
+                                            self.selected_region, self.selected_sector, refapp, self.dl)
+        print(f"dl wir gegen als to: {self.dl}")
+
+    def update_dl(self):
+        """Aktualisiere die Variable `dl` basierend auf der Auswahl der Radio Buttons."""
+        if self.dl_polar_radio.isChecked():
+            self.dl = 'polar'
+        elif self.dl_detailed_radio.isChecked():
+            self.dl = 'detailed'
+        print(f"dl is set to: {self.dl}")
+

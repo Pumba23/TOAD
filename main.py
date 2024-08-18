@@ -9,5 +9,3 @@ if __name__ == '__main__':
     print("Main window shown.")
     sys.exit(app.exec())
 
-
- #testung
