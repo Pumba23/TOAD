@@ -1,16 +1,11 @@
-#Trade Orientated Analysis through Decomposition
+import sys
+from PySide6.QtWidgets import QApplication
+from ui_components import MyApp
 
-#
-import pymrio
-from load_exiobase import mrio_load
-
-input_path = mrio_load()  # download Exiobase
-
-exio_path = 'r'+input_path+'\EXIO3_IXI'   # path for parsing, in my case: C:\Users\VolkerHome\PycharmProjects\Mario_calc
-
-
-
-
-
-
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    window = MyApp()
+    window.showFullScreen()  # Vollbildmodus aktivieren
+    print("Main window shown.")
+    sys.exit(app.exec())
 
