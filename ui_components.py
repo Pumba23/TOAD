@@ -173,12 +173,12 @@ class MyApp(QWidget):
         self.stacked_widget.addWidget(self.ref_approach_sda_page)
         self.stacked_widget.setCurrentWidget(self.ref_approach_sda_page)
 
-    def show_sda_process_load_page(self, sda_type, start_year, end_year, selected_demand, selected_region, selected_sector, refapp, dl):
+    def show_sda_process_load_page(self, sda_type, start_year, end_year, selected_demand, selected_region, selected_sector, refapp, dl, plot):
         """ Zeigt die SDA Process Load Seite mit den übergebenen Informationen """
         if hasattr(self, 'sda_process_load_page'):
             self.stacked_widget.removeWidget(self.sda_process_load_page)
         self.sda_process_load_page = SDAProcessLoad(self, sda_type, start_year, end_year, selected_demand,
-                                                    selected_region, selected_sector, refapp, dl)
+                                                    selected_region, selected_sector, refapp, dl, plot)
         self.stacked_widget.addWidget(self.sda_process_load_page)
         self.stacked_widget.setCurrentWidget(self.sda_process_load_page)
 

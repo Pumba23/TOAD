@@ -3,6 +3,7 @@
 from PySide6.QtWidgets import QWidget, QVBoxLayout, QLabel, QProgressBar, QMessageBox
 from PySide6.QtCore import QThread, Signal, Slot, Qt
 from SDA_basic_main import basic_SDA  # Import der Funktion
+from SDA_basic_main3 import basic_SDA3
 from SDA_extended_main import ext_SDA  # Import der Funktion
 import sys
 import os
@@ -15,7 +16,7 @@ class WorkerThread(QThread):
     progress = Signal(int)
     finished = Signal()
 
-    def __init__(self, sda_type, start_year, end_year, selected_demand, selected_region, selected_sector, refapp, dl):
+    def __init__(self, sda_type, start_year, end_year, selected_demand, selected_region, selected_sector, refapp, dl, plot):
         super().__init__()
         self.sda_type = sda_type
         self.start_year = start_year
@@ -24,12 +25,20 @@ class WorkerThread(QThread):
         self.selected_region = selected_region
         self.selected_sector = selected_sector
         self.dl = dl
+        self.plot = plot
         self.refapp = refapp
 
     def run(self):
         # Rufe die basic_SDA-Funktion auf und übergebe die notwendigen Parameter
         if self.sda_type == 'basic':
-            basic_SDA(self.sda_type, self.start_year, self.end_year, self.selected_demand, self.selected_region, self.selected_sector, self.refapp, self.dl, self.update_progress_callback)
+            if self.plot == 'aggregated':
+                basic_SDA(self.sda_type, self.start_year, self.end_year, self.selected_demand, self.selected_region, self.selected_sector, self.refapp, self.dl, self.update_progress_callback)
+            if self.plot == 'sectoral':
+                self.start_year = 1996
+                self.end_year = 2021
+                basic_SDA3(self.sda_type, self.start_year, self.end_year, self.selected_demand, self.selected_region,
+                          self.selected_sector, self.refapp, self.dl, self.update_progress_callback)
+
         if self.sda_type == 'extended':
             ext_SDA(self.sda_type, self.start_year, self.end_year, self.selected_demand, self.selected_region, self.selected_sector, self.refapp, self.dl, self.update_progress_callback)
 
@@ -39,7 +48,7 @@ class WorkerThread(QThread):
         # Diese Methode wird von basic_SDA aufgerufen, um den Fortschritt zu aktualisieren
         self.progress.emit(k)
 class SDAProcessLoad(QWidget):
-    def __init__(self, app, sda_type, start_year, end_year, selected_demand, selected_region, selected_sector, refapp, dl):
+    def __init__(self, app, sda_type, start_year, end_year, selected_demand, selected_region, selected_sector, refapp, dl, plot):
         super().__init__()
         self.finished = False  # Statusvariable hinzufügen
         self.app = app
@@ -51,6 +60,7 @@ class SDAProcessLoad(QWidget):
         self.selected_sector = selected_sector
         self.refapp = refapp
         self.dl = dl
+        self.plot = plot
         self.period_pro = int(end_year) - int(start_year)
         self.initUI()
 
@@ -110,7 +120,7 @@ class SDAProcessLoad(QWidget):
         self.start_process()
 
     def start_process(self):
-        self.worker_thread = WorkerThread(self.sda_type, self.start_year, self.end_year, self.selected_demand, self.selected_region, self.selected_sector, self.refapp, self.dl)
+        self.worker_thread = WorkerThread(self.sda_type, self.start_year, self.end_year, self.selected_demand, self.selected_region, self.selected_sector, self.refapp, self.dl, self.plot)
         self.worker_thread.progress.connect(self.update_progress)
         k = 0
         self.worker_thread.start()

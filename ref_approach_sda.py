@@ -15,6 +15,7 @@ class RefApproachSDA(QWidget):
         self.selected_region = selected_region
         self.selected_sector = selected_sector
         self.dl = 'polar'
+        self.plot = 'aggregated'
         self.initUI()
 
     def initUI(self):
@@ -65,7 +66,7 @@ class RefApproachSDA(QWidget):
         center_layout.addWidget(info_label, alignment=Qt.AlignCenter)
 
         # Spacer Item zwischen den Zonen
-        spacer = QSpacerItem(20, 50, QSizePolicy.Minimum, QSizePolicy.Expanding)  # Abstand erhöht
+        spacer = QSpacerItem(4, 10, QSizePolicy.Minimum, QSizePolicy.Expanding)  # Abstand erhöht
         center_layout.addItem(spacer)
 
         # Radio Buttons für D&L polar und D&L detailed
@@ -93,7 +94,35 @@ class RefApproachSDA(QWidget):
         center_layout.addLayout(radio_layout)
 
         # Spacer Item zwischen den Zonen
-        spacer = QSpacerItem(20, 50, QSizePolicy.Minimum, QSizePolicy.Expanding)  # Abstand erhöht
+        spacer = QSpacerItem(2, 5, QSizePolicy.Minimum, QSizePolicy.Expanding)  # Abstand erhöht
+        center_layout.addItem(spacer)
+
+        # Radio Buttons für D&L polar und D&L detailed
+        self.radio_button_group2 = QButtonGroup(self)
+        radio_layout2 = QHBoxLayout()
+        radio_layout2.setAlignment(Qt.AlignCenter)
+
+        self.aggregated_radio = QRadioButton("Aggregated plot")
+        self.aggregated_radio.setChecked(True)
+        self.aggregated_radio.setStyleSheet('font-size: 25px; color: black;')  # Schriftgröße erhöht
+
+        self.sectoral_radio = QRadioButton("Sectoral plot")
+        self.sectoral_radio.setStyleSheet('font-size: 25px; color: black;')  # Schriftgröße erhöht
+
+        self.radio_button_group2.addButton(self.aggregated_radio)
+        self.radio_button_group2.addButton(self.sectoral_radio)
+
+        radio_layout2.addWidget(self.aggregated_radio)
+        radio_layout2.addWidget(self.sectoral_radio)
+
+        # Verbinde Radio Buttons mit Slot
+        self.aggregated_radio.toggled.connect(self.update_plot)
+        self.sectoral_radio.toggled.connect(self.update_plot)
+
+        center_layout.addLayout(radio_layout2)
+
+        # Spacer Item zwischen den Zonen
+        spacer = QSpacerItem(4, 10, QSizePolicy.Minimum, QSizePolicy.Expanding)  # Abstand erhöht
         center_layout.addItem(spacer)
 
         # Button Layout für die Buttons nebeneinander
@@ -139,7 +168,7 @@ class RefApproachSDA(QWidget):
 
     def on_continue(self, refapp):
         self.app.show_sda_process_load_page(self.sda_type, self.start_year, self.end_year, self.selected_demand,
-                                            self.selected_region, self.selected_sector, refapp, self.dl)
+                                            self.selected_region, self.selected_sector, refapp, self.dl, self.plot)
         print(f"dl wir gegen als to: {self.dl}")
 
     def update_dl(self):
@@ -149,4 +178,12 @@ class RefApproachSDA(QWidget):
         elif self.dl_detailed_radio.isChecked():
             self.dl = 'detailed'
         print(f"dl is set to: {self.dl}")
+
+    def update_plot(self):
+        """Aktualisiere die Variable `dl` basierend auf der Auswahl der Radio Buttons."""
+        if self.aggregated_radio.isChecked():
+            self.plot = 'aggregated'
+        elif self.sectoral_radio.isChecked():
+            self.plot = 'sectoral'
+        print(f"plot is set to: {self.plot}")
 

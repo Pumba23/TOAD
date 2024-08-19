@@ -5,16 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db837c88-4671-4783-b512-a0c01dae3ee5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/SDA_basic_DL81.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SDA_basic_calc_31.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SDA_basic_main3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SDA_basic_sector_plot.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SDA_result_summation2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SDA_sector_last.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SDA_trade_approach2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SDA_years2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SDA_basic_DL62.py" beforeDir="false" afterPath="$PROJECT_DIR$/SDA_basic_DL62.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SDA_basic_calc_24.py" beforeDir="false" afterPath="$PROJECT_DIR$/SDA_basic_calc_24.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SDA_basic_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/SDA_basic_main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.spec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SDA_specs/iot_agg_reg_DE.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/SDA_specs/iot_agg_reg_DE.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/main/base_library.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plots/Energy industries/IDA_plot_of_Energy industries_cud_1991_at_17-13_18-08-2024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plots/basic_2024-08-18/DLlong_basic_sum_Fundamental SDA - Domestic Demand Approach_at_16-56_18-08-2024_.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plots/basic_2024-08-18/DLlong_basic_sum_Fundamental SDA - Domestic Demand Approach_at_17-15_18-08-2024_.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plots/basic_2024-08-18/ghg_curve_at_DLlong_16-56_18-08-2024_verlauf_of_basic_+_basic.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plots/basic_2024-08-18/ghg_curve_at_DLlong_17-15_18-08-2024_verlauf_of_basic_+_basic.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ref_approach_sda.py" beforeDir="false" afterPath="$PROJECT_DIR$/ref_approach_sda.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/Energy industries/IDA_results_of_Energy industries_1991_cud_at_17-13_18-08-2024.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/basic_2024-08-18/A_comprised_Results_of_DLlong_basic_+_sum_+_dom2_+_16-56_18-08-2024.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/basic_2024-08-18/A_comprised_Results_of_DLlong_basic_+_sum_+_dom2_+_17-15_18-08-2024.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/basic_2024-08-18/GHG_curve_data_of_DLlong_basic_+_sum_+_dom2_+_16-56_18-08-2024.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/basic_2024-08-18/GHG_curve_data_of_DLlong_basic_+_sum_+_dom2_+_17-15_18-08-2024.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/basic_2024-08-18/total effects_of_DLlong_basic_+_sum_+_dom2_+_16-56_18-08-2024.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/basic_2024-08-18/total effects_of_DLlong_basic_+_sum_+_dom2_+_17-15_18-08-2024.xlsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/sda_process_load.py" beforeDir="false" afterPath="$PROJECT_DIR$/sda_process_load.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test1.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ui_components.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui_components.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
